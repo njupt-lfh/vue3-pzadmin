@@ -68,7 +68,7 @@
 
 <script setup>
 import { ref, reactive, onMounted, nextTick } from 'vue'
-import { userGetMenu, userSetmenu, menuList } from '@/api'
+import { userGetMenu, userSetMenu, menuList } from '@/api'
 import { Plus } from '@element-plus/icons-vue'
 
 onMounted(() => {
@@ -164,7 +164,7 @@ const confirm = async (formEl) => {
       //获取选中的权限
       const permissions = JSON.stringify(treeRef.value.getCheckedKeys())
       //提交表单
-      userSetmenu({ name: form.name, permissions, id: form.id }).then(({ data }) => {
+      userSetMenu({ name: form.name, permissions, id: form.id }).then(({ data }) => {
         // console.log(data)
         beforeClose()
         getListData()

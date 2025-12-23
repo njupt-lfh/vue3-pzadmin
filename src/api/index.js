@@ -26,11 +26,21 @@ export const userGetMenu = () => {
 }
 
 //菜单权限修改
-export const userSetmenu = (data) => {
+export const userSetMenu = (data) => {
   return request.post('/user/setmenu', data)
 }
 
 // 菜单列表数据
 export const menuList = (params) => {
   return request.get('/menu/list', { params })
+}
+
+//权限下拉列表
+export const menuSelectList = () => {
+  return request.get('/menu/selectlist')
+}
+
+//用户数据修改
+export const updateUser = (data) => {
+  return request.post('/update/user', data)
 }
