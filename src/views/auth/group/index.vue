@@ -1,5 +1,5 @@
 <template>
-  <panel-head />
+  <panel-head :route="route"/>
   <div class="btns">
     <el-button :icon="Plus" type="primary" @click="open(null)">
       添加</el-button>
@@ -70,6 +70,9 @@
 import { ref, reactive, onMounted, nextTick } from 'vue'
 import { userGetMenu, userSetMenu, menuList } from '@/api'
 import { Plus } from '@element-plus/icons-vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 onMounted(() => {
   //菜单数据

@@ -43,11 +43,12 @@
   </el-row>
 </template>
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed, toRaw } from 'vue'
 import { UserFilled, Lock } from '@element-plus/icons-vue'
-import { getCode, userAuthentication, login } from '@/api'
+import { getCode, userAuthentication, login, menuPermissions } from '@/api'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
 const imgUrl = new URL('../../../public/login-head.png', import.meta.url).href
 
@@ -134,6 +135,9 @@ const countdownChange = () => {
 // 提交表单
 const loginFormRef = ref()
 const router = useRouter()
+const store = useStore()
+//获取路由数据
+const routerList = computed(() => store.state.menu.routerList)
 
 const submitForm = async (formEl) => {
   if(!formEl) return
@@ -156,7 +160,16 @@ const submitForm = async (formEl) => {
             //将token和用户信息缓存到浏览器
             localStorage.setItem('pz_token', data.data.token)
             localStorage.setItem('pz_userInfo', JSON.stringify(data.data.userInfo))
-            router.push('/')
+            //获取用户菜单权限
+            menuPermissions().then(({ data }) => {
+              store.commit('dynamicMenu', data.data)
+              //将路由数据转换为普通对象
+              toRaw(routerList.value).forEach(item => {
+                router.addRoute('main', item)
+              })
+              //跳转到首页
+              router.push('/')
+            })
           }
         })
       }

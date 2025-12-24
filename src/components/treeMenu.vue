@@ -3,9 +3,9 @@
     <!-- 没有子菜单的情况 -->
     <el-menu-item 
     v-if="!item.children || item.children.length == 0"
-    :index="'${props.index}-${item.meta.id}'" 
-    :key="index"
-    @click="handleClick(item, index)"> 
+    :index="`${props.index}-${item.meta.id}`" 
+    :key="`${props.index}-${item.meta.id}`"
+    @click="handleClick(item, `${props.index}-${item.meta.id}`)"> 
       <el-icon size="20">
         <component :is="item.meta.icon" />
       </el-icon>
@@ -14,7 +14,7 @@
     <!-- 有子菜单的情况 -->
      <el-sub-menu 
       v-else 
-      :index="'${props.index}-${item.meta.id}'"
+      :index="`${props.index}-${item.meta.id}`"
       :key="index+1">
       <template #title>
         <el-icon size="20">
@@ -25,7 +25,7 @@
       </template>
       <!-- 递归调用树菜单组件 -->
       <tree-menu 
-        :index="'${props.index}-${item.meta.id}'" 
+        :index="`${props.index}-${item.meta.id}`" 
         :menuData="item.children" />
      </el-sub-menu>
   </template>
@@ -42,7 +42,9 @@
   const handleClick = (item, active) => {
     // console.log(item, 'item');
     // 记录选中的菜单
-    store.commit("addMenu", item.meta);
+    store.commit('addMenu', item.meta);
+    // 更新选中的菜单
+    store.commit('updateMenuActive', active)
     // 跳转路由
     router.push(item.meta.path)
   }
