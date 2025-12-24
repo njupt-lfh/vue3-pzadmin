@@ -41,11 +41,11 @@
   .aside-container {
     height: 100%;
     .logo-lg {
-    font-size: 20px;
-    color: #fff;
-    text-align: center;
-    height: 50px;
-    line-height: 50px;
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
     }
   }
 </style>

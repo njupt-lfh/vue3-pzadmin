@@ -49,3 +49,23 @@ export const updateUser = (data) => {
 export const menuPermissions = () => {
   return request.get('/menu/permissions')
 }
+
+// 陪护师头像列表
+export const photoList = (params) => {
+  return request.get('/photo/list', { params })
+}
+
+// 陪护师创建
+export const companion = (data) => {
+  return request.post('/companion', data)
+}
+
+// 陪护师列表
+export const companionList = (params) => {
+  return request.get('/companion/list', { params })
+}
+
+// 陪护师删除
+export const deleteCompanion = (data) => {
+  return request.post('/delete/companion', data)
+}

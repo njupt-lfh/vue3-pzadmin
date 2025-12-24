@@ -105,14 +105,14 @@ onMounted(() => {
   getListData()
   //获取权限下拉列表
   menuSelectList().then(({ data }) => {
-    console.log(data, 'menuSelectList')
+    // console.log(data, 'menuSelectList')
     options.value = data.data
   })
 })
 //请求列表
 const getListData = () =>{
   authAdmin(paginationData).then(({ data }) => {
-    console.log(data, 'authAdmin')
+    // console.log(data, 'authAdmin')
     const { list, total } = data.data
     list.forEach(item => {
       item.create_time = dayjs(item.create_time).format('YYYY-MM-DD')

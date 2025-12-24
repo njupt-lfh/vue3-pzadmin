@@ -77,7 +77,7 @@ const route = useRoute()
 onMounted(() => {
   //菜单数据
   userGetMenu().then(({ data }) => {
-    console.log(data)
+    // console.log(data)
     permissionData.value = data.data
   })
   getListData()
