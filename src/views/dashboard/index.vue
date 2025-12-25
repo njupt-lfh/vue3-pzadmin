@@ -1,18 +1,6 @@
 <template>
-  <div>
-    <h1>欢迎来到后台管理系统</h1>
-  </div>
-</template>
-
-<script setup>
-</script>
-
-<style lang="less" scoped>
-  
-</style>
-<!-- <template>
   <div class="control-container">
-    <panel-head :info="route" />
+    <panel-head :route="route" />
     <div class="card">
       <div class="user">
         <el-card class="user-card">
@@ -236,4 +224,4 @@ onMounted(() => {
     height: 400px;
   }
 }
-</style> -->
+</style>
