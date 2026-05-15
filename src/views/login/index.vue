@@ -21,10 +21,10 @@
           class="demo-ruleForm"
         >
           <el-form-item prop="userName">
-            <el-input v-model="loginForm.userName" :prefix-icon="UserFilled" placeholder="手机号" autocomplete="off" />
+            <el-input v-model="loginForm.userName" :prefix-icon="UserFilled" placeholder="手机号15170799464" autocomplete="off" />
           </el-form-item>
           <el-form-item prop="passWord">
-            <el-input v-model="loginForm.passWord" :prefix-icon="Lock" type="passWord" placeholder="密码" autocomplete="off" />
+            <el-input v-model="loginForm.passWord" :prefix-icon="Lock" type="passWord" placeholder="密码l123456_-" autocomplete="off" />
           </el-form-item>
           <el-form-item v-if="formType" prop="validCode">
             <el-input v-model="loginForm.validCode" :prefix-icon="Lock" placeholder="验证码" autocomplete="off">
