@@ -76,8 +76,8 @@ const routes = [
 ]
 
 const router = createRouter({
-  // 路由匹配模式：hash模式
-  history: createWebHashHistory(),
+  // 路由匹配模式：hash模式（与 Vite base 一致，便于部署到子路径）
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   // 路由数据
   routes
 })

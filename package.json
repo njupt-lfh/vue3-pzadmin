@@ -3,9 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://njupt-lfh.github.io/vue3-pzadmin",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:pages": "vite build --base /vue3-pzadmin/",
     "preview": "vite preview"
   },
   "dependencies": {

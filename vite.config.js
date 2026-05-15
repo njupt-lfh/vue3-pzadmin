@@ -11,6 +11,8 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // GitHub Pages 项目站子路径：本地构建可设 VITE_BASE_PATH=/vue3-pzadmin/ npm run build
+  base: process.env.VITE_BASE_PATH || '/',
   plugins: [
     vue(),
     AutoImport({
